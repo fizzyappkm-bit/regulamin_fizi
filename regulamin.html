@@ -21,6 +21,31 @@
             margin: 0 auto;
         }
 
+        .language-switcher {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+
+        .language-switcher button {
+            background: none;
+            border: 1px solid #000;
+            padding: 8px 16px;
+            margin-left: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #000;
+            transition: background-color 0.2s;
+        }
+
+        .language-switcher button:hover {
+            background-color: #f0f0f0;
+        }
+
+        .language-switcher button.active {
+            background-color: #000;
+            color: #fff;
+        }
+
         .section-title {
             color: #000;
             font-size: 20px;
@@ -56,185 +81,426 @@
             margin-top: 32px;
             text-align: center;
         }
+
+        .lang-content {
+            display: none;
+        }
+
+        .lang-content.active {
+            display: block;
+        }
     </style>
 </head>
 <body>
-    <h1 class="section-title">1. Postanowienia ogólne</h1>
-    <p class="text">
-        Niniejszy Regulamin określa zasady korzystania z aplikacji mobilnej FiziMove ("aplikacja", "aplikacja FiziMove"). Korzystanie z aplikacji oznacza akceptację niniejszego Regulaminu.
-    </p>
+    <div class="language-switcher">
+        <button id="lang-pl" onclick="switchLanguage('pl')">PL</button>
+        <button id="lang-en" onclick="switchLanguage('en')">EN</button>
+    </div>
 
-    <h1 class="section-title">2. Akceptacja regulaminu</h1>
-    <p class="text">
-        Rozpoczęcie korzystania z aplikacji FiziMove oznacza akceptację wszystkich postanowień niniejszego Regulaminu. Jeśli nie akceptujesz któregokolwiek z postanowień Regulaminu, nie korzystaj z aplikacji.
-    </p>
-    <p class="text">
-        Aplikacja jest zgodna z wytycznymi Apple App Store i Google Play Store. Korzystając z aplikacji, użytkownik zobowiązuje się również do przestrzegania warunków korzystania z usług Apple i Google.
-    </p>
+    <!-- Polish Content -->
+    <div id="content-pl" class="lang-content">
+        <h1 class="section-title">1. Postanowienia ogólne</h1>
+        <p class="text">
+            Niniejszy Regulamin określa zasady korzystania z aplikacji mobilnej FiziMove ("aplikacja", "aplikacja FiziMove"). Korzystanie z aplikacji oznacza akceptację niniejszego Regulaminu.
+        </p>
 
-    <h1 class="section-title">3. Wymagania wiekowe</h1>
-    <p class="text">
-        Aplikacja FiziMove jest przeznaczona dla użytkowników w wieku co najmniej 13 lat. Osoby poniżej 18 roku życia powinny korzystać z aplikacji za zgodą i pod nadzorem rodzica lub opiekuna prawnego.
-    </p>
-    <p class="text">
-        Jeśli jesteś rodzicem lub opiekunem prawnym i zauważysz, że Twoje dziecko korzysta z aplikacji bez Twojej zgody, skontaktuj się z nami, a podejmiemy odpowiednie działania.
-    </p>
+        <h1 class="section-title">2. Akceptacja regulaminu</h1>
+        <p class="text">
+            Rozpoczęcie korzystania z aplikacji FiziMove oznacza akceptację wszystkich postanowień niniejszego Regulaminu. Jeśli nie akceptujesz któregokolwiek z postanowień Regulaminu, nie korzystaj z aplikacji.
+        </p>
+        <p class="text">
+            Aplikacja jest zgodna z wytycznymi Apple App Store i Google Play Store. Korzystając z aplikacji, użytkownik zobowiązuje się również do przestrzegania warunków korzystania z usług Apple i Google.
+        </p>
 
-    <h1 class="section-title">4. Charakter aplikacji</h1>
-    <p class="text">
-        <span class="bold">Aplikacja FiziMove ma charakter wyłącznie edukacyjny i wellness.</span> Prezentowane ćwiczenia i treści mają na celu wsparcie ogólnego samopoczucia i nie zastępują profesjonalnej porady medycznej, terapeutycznej ani diagnozy.
-    </p>
-    <p class="text">
-        Przed rozpoczęciem jakichkolwiek ćwiczeń, szczególnie jeśli doświadczasz bólu, dyskomfortu lub masz jakiekolwiek schorzenia, zalecamy konsultację z lekarzem, fizjoterapeutą lub innym wykwalifikowanym specjalistą.
-    </p>
+        <h1 class="section-title">3. Wymagania wiekowe</h1>
+        <p class="text">
+            Aplikacja FiziMove jest przeznaczona dla użytkowników w wieku co najmniej 13 lat. Osoby poniżej 18 roku życia powinny korzystać z aplikacji za zgodą i pod nadzorem rodzica lub opiekuna prawnego.
+        </p>
+        <p class="text">
+            Jeśli jesteś rodzicem lub opiekunem prawnym i zauważysz, że Twoje dziecko korzysta z aplikacji bez Twojej zgody, skontaktuj się z nami, a podejmiemy odpowiednie działania.
+        </p>
 
-    <h1 class="section-title">5. Zasady korzystania</h1>
-    <p class="text">
-        Użytkownik zobowiązuje się do korzystania z aplikacji zgodnie z jej przeznaczeniem i w sposób zgodny z prawem. Zabronione jest:
-    </p>
-    <p class="bullet-point">
-        • Wykorzystywanie aplikacji w sposób mogący naruszać prawa innych osób
-    </p>
-    <p class="bullet-point">
-        • Próby modyfikacji, dekompilacji lub reverse engineering aplikacji
-    </p>
-    <p class="bullet-point">
-        • Wykorzystywanie aplikacji do celów komercyjnych bez zgody dewelopera
-    </p>
+        <h1 class="section-title">4. Charakter aplikacji</h1>
+        <p class="text">
+            <span class="bold">Aplikacja FiziMove ma charakter wyłącznie edukacyjny i wellness.</span> Prezentowane ćwiczenia i treści mają na celu wsparcie ogólnego samopoczucia i nie zastępują profesjonalnej porady medycznej, terapeutycznej ani diagnozy.
+        </p>
+        <p class="text">
+            Przed rozpoczęciem jakichkolwiek ćwiczeń, szczególnie jeśli doświadczasz bólu, dyskomfortu lub masz jakiekolwiek schorzenia, zalecamy konsultację z lekarzem, fizjoterapeutą lub innym wykwalifikowanym specjalistą.
+        </p>
 
-    <h1 class="section-title">6. Odpowiedzialność</h1>
-    <p class="text">
-        <span class="bold">Deweloper nie ponosi odpowiedzialności za:</span>
-    </p>
-    <p class="bullet-point">
-        • Szkody wynikające z niewłaściwego korzystania z aplikacji
-    </p>
-    <p class="bullet-point">
-        • Szkody zdrowotne wynikające z wykonywania ćwiczeń prezentowanych w aplikacji
-    </p>
-    <p class="bullet-point">
-        • Utratę danych przechowywanych lokalnie na urządzeniu użytkownika
-    </p>
-    <p class="bullet-point">
-        • Działanie aplikacji na urządzeniach nieobsługiwanych
-    </p>
-    <p class="text">
-        Użytkownik korzysta z aplikacji na własną odpowiedzialność.
-    </p>
+        <h1 class="section-title">5. Zasady korzystania</h1>
+        <p class="text">
+            Użytkownik zobowiązuje się do korzystania z aplikacji zgodnie z jej przeznaczeniem i w sposób zgodny z prawem. Zabronione jest:
+        </p>
+        <p class="bullet-point">
+            • Wykorzystywanie aplikacji w sposób mogący naruszać prawa innych osób
+        </p>
+        <p class="bullet-point">
+            • Próby modyfikacji, dekompilacji lub reverse engineering aplikacji
+        </p>
+        <p class="bullet-point">
+            • Wykorzystywanie aplikacji do celów komercyjnych bez zgody dewelopera
+        </p>
 
-    <h1 class="section-title">7. Własność intelektualna</h1>
-    <p class="text">
-        Wszystkie prawa autorskie, znaki towarowe i inne prawa własności intelektualnej do aplikacji FiziMove należą do dewelopera. Zabronione jest kopiowanie, modyfikowanie, rozpowszechnianie lub wykorzystywanie aplikacji lub jej części bez zgody dewelopera.
-    </p>
+        <h1 class="section-title">6. Odpowiedzialność</h1>
+        <p class="text">
+            <span class="bold">Deweloper nie ponosi odpowiedzialności za:</span>
+        </p>
+        <p class="bullet-point">
+            • Szkody wynikające z niewłaściwego korzystania z aplikacji
+        </p>
+        <p class="bullet-point">
+            • Szkody zdrowotne wynikające z wykonywania ćwiczeń prezentowanych w aplikacji
+        </p>
+        <p class="bullet-point">
+            • Utratę danych przechowywanych lokalnie na urządzeniu użytkownika
+        </p>
+        <p class="bullet-point">
+            • Działanie aplikacji na urządzeniach nieobsługiwanych
+        </p>
+        <p class="text">
+            Użytkownik korzysta z aplikacji na własną odpowiedzialność.
+        </p>
 
-    <h1 class="section-title">8. Usługi zewnętrzne</h1>
-    <p class="text">
-        Aplikacja korzysta z usług zewnętrznych, w tym:
-    </p>
-    <p class="bullet-point">
-        • <span class="bold">Google AdMob</span> - do wyświetlania reklam w aplikacji. Korzystanie z AdMob podlega warunkom korzystania z usług Google oraz polityce prywatności Google.
-    </p>
-    <p class="text">
-        Deweloper nie ponosi odpowiedzialności za działanie usług zewnętrznych ani za treści reklamowe wyświetlane przez te usługi.
-    </p>
+        <h1 class="section-title">7. Własność intelektualna</h1>
+        <p class="text">
+            Wszystkie prawa autorskie, znaki towarowe i inne prawa własności intelektualnej do aplikacji FiziMove należą do dewelopera. Zabronione jest kopiowanie, modyfikowanie, rozpowszechnianie lub wykorzystywanie aplikacji lub jej części bez zgody dewelopera.
+        </p>
 
-    <h1 class="section-title">9. Zakupy w aplikacji i subskrypcje</h1>
-    <p class="text">
-        Obecnie aplikacja nie oferuje zakupów w aplikacji ani subskrypcji. W przypadku wprowadzenia takich funkcji w przyszłości:
-    </p>
-    <p class="bullet-point">
-        • Wszystkie zakupy będą realizowane zgodnie z systemami płatności Apple (In-App Purchase) i Google (Google Play Billing)
-    </p>
-    <p class="bullet-point">
-        • Ceny, warunki subskrypcji oraz zasady odnawiania będą jasno określone przed dokonaniem zakupu
-    </p>
-    <p class="bullet-point">
-        • Zwroty i anulowania będą realizowane zgodnie z polityką zwrotów Apple App Store i Google Play Store
-    </p>
-    <p class="bullet-point">
-        • Użytkownik może zarządzać subskrypcjami i anulować je w ustawieniach swojego konta w App Store lub Google Play
-    </p>
-    <p class="text">
-        W przypadku pytań dotyczących zakupów lub zwrotów, użytkownik powinien skontaktować się bezpośrednio z Apple lub Google, w zależności od platformy.
-    </p>
+        <h1 class="section-title">8. Usługi zewnętrzne</h1>
+        <p class="text">
+            Aplikacja korzysta z usług zewnętrznych, w tym:
+        </p>
+        <p class="bullet-point">
+            • <span class="bold">Google AdMob</span> - do wyświetlania reklam w aplikacji. Korzystanie z AdMob podlega warunkom korzystania z usług Google oraz polityce prywatności Google.
+        </p>
+        <p class="text">
+            Deweloper nie ponosi odpowiedzialności za działanie usług zewnętrznych ani za treści reklamowe wyświetlane przez te usługi.
+        </p>
 
-    <h1 class="section-title">10. Dostępność aplikacji</h1>
-    <p class="text">
-        Deweloper zastrzega sobie prawo do:
-    </p>
-    <p class="bullet-point">
-        • Tymczasowego lub stałego zawieszenia działania aplikacji
-    </p>
-    <p class="bullet-point">
-        • Wprowadzania zmian w funkcjonalności aplikacji
-    </p>
-    <p class="bullet-point">
-        • Wycofania aplikacji z dystrybucji
-    </p>
-    <p class="text">
-        Deweloper nie gwarantuje nieprzerwanego działania aplikacji ani braku błędów.
-    </p>
+        <h1 class="section-title">9. Zakupy w aplikacji i subskrypcje</h1>
+        <p class="text">
+            Obecnie aplikacja nie oferuje zakupów w aplikacji ani subskrypcji. W przypadku wprowadzenia takich funkcji w przyszłości:
+        </p>
+        <p class="bullet-point">
+            • Wszystkie zakupy będą realizowane zgodnie z systemami płatności Apple (In-App Purchase) i Google (Google Play Billing)
+        </p>
+        <p class="bullet-point">
+            • Ceny, warunki subskrypcji oraz zasady odnawiania będą jasno określone przed dokonaniem zakupu
+        </p>
+        <p class="bullet-point">
+            • Zwroty i anulowania będą realizowane zgodnie z polityką zwrotów Apple App Store i Google Play Store
+        </p>
+        <p class="bullet-point">
+            • Użytkownik może zarządzać subskrypcjami i anulować je w ustawieniach swojego konta w App Store lub Google Play
+        </p>
+        <p class="text">
+            W przypadku pytań dotyczących zakupów lub zwrotów, użytkownik powinien skontaktować się bezpośrednio z Apple lub Google, w zależności od platformy.
+        </p>
 
-    <h1 class="section-title">11. Zawieszenie i zakończenie</h1>
-    <p class="text">
-        Deweloper zastrzega sobie prawo do zawieszenia lub zakończenia dostępu użytkownika do aplikacji w przypadku naruszenia niniejszego Regulaminu.
-    </p>
-    <p class="text">
-        Apple i Google zastrzegają sobie prawo do usunięcia aplikacji ze swoich sklepów w przypadku naruszenia ich wytycznych lub przepisów prawa.
-    </p>
-    <p class="text">
-        Użytkownik może w dowolnym momencie przestać korzystać z aplikacji poprzez jej odinstalowanie.
-    </p>
+        <h1 class="section-title">10. Dostępność aplikacji</h1>
+        <p class="text">
+            Deweloper zastrzega sobie prawo do:
+        </p>
+        <p class="bullet-point">
+            • Tymczasowego lub stałego zawieszenia działania aplikacji
+        </p>
+        <p class="bullet-point">
+            • Wprowadzania zmian w funkcjonalności aplikacji
+        </p>
+        <p class="bullet-point">
+            • Wycofania aplikacji z dystrybucji
+        </p>
+        <p class="text">
+            Deweloper nie gwarantuje nieprzerwanego działania aplikacji ani braku błędów.
+        </p>
 
-    <h1 class="section-title">12. Zmiany regulaminu</h1>
-    <p class="text">
-        Deweloper zastrzega sobie prawo do wprowadzania zmian w niniejszym Regulaminie. O wszelkich istotnych zmianach użytkownicy będą informowani poprzez aktualizację aplikacji. Kontynuowanie korzystania z aplikacji po wprowadzeniu zmian oznacza akceptację nowego Regulaminu.
-    </p>
+        <h1 class="section-title">11. Zawieszenie i zakończenie</h1>
+        <p class="text">
+            Deweloper zastrzega sobie prawo do zawieszenia lub zakończenia dostępu użytkownika do aplikacji w przypadku naruszenia niniejszego Regulaminu.
+        </p>
+        <p class="text">
+            Apple i Google zastrzegają sobie prawo do usunięcia aplikacji ze swoich sklepów w przypadku naruszenia ich wytycznych lub przepisów prawa.
+        </p>
+        <p class="text">
+            Użytkownik może w dowolnym momencie przestać korzystać z aplikacji poprzez jej odinstalowanie.
+        </p>
 
-    <h1 class="section-title">13. Rozstrzyganie sporów</h1>
-    <p class="text">
-        W sprawach nieuregulowanych niniejszym Regulaminem mają zastosowanie przepisy prawa polskiego.
-    </p>
-    <p class="text">
-        W przypadku sporów związanych z zakupami w aplikacji, użytkownik może skorzystać z mechanizmów rozstrzygania sporów dostępnych w Apple App Store lub Google Play Store.
-    </p>
-    <p class="text">
-        Wszelkie inne spory będą rozstrzygane przez właściwe sądy polskie, chyba że przepisy prawa wymagają innego postępowania.
-    </p>
+        <h1 class="section-title">12. Zmiany regulaminu</h1>
+        <p class="text">
+            Deweloper zastrzega sobie prawo do wprowadzania zmian w niniejszym Regulaminie. O wszelkich istotnych zmianach użytkownicy będą informowani poprzez aktualizację aplikacji. Kontynuowanie korzystania z aplikacji po wprowadzeniu zmian oznacza akceptację nowego Regulaminu.
+        </p>
 
-    <h1 class="section-title">14. Zgodność z wytycznymi sklepów</h1>
-    <p class="text">
-        Aplikacja jest zgodna z wytycznymi Apple App Store i Google Play Store dotyczącymi treści, prywatności i funkcjonalności. Deweloper zobowiązuje się do utrzymania tej zgodności i aktualizacji aplikacji w razie zmian w wytycznych.
-    </p>
-    <p class="text">
-        W przypadku jakichkolwiek niezgodności z wytycznymi sklepów, deweloper podejmie natychmiastowe działania w celu ich usunięcia.
-    </p>
+        <h1 class="section-title">13. Rozstrzyganie sporów</h1>
+        <p class="text">
+            W sprawach nieuregulowanych niniejszym Regulaminem mają zastosowanie przepisy prawa polskiego.
+        </p>
+        <p class="text">
+            W przypadku sporów związanych z zakupami w aplikacji, użytkownik może skorzystać z mechanizmów rozstrzygania sporów dostępnych w Apple App Store lub Google Play Store.
+        </p>
+        <p class="text">
+            Wszelkie inne spory będą rozstrzygane przez właściwe sądy polskie, chyba że przepisy prawa wymagają innego postępowania.
+        </p>
 
-    <h1 class="section-title">15. Postanowienia końcowe</h1>
-    <p class="text">
-        Jeśli którykolwiek przepis niniejszego Regulaminu zostanie uznany za nieważny lub niewykonalny, pozostałe przepisy pozostają w mocy.
-    </p>
-    <p class="text">
-        Niniejszy Regulamin stanowi całość porozumienia między użytkownikiem a deweloperem dotyczącego korzystania z aplikacji.
-    </p>
+        <h1 class="section-title">14. Zgodność z wytycznymi sklepów</h1>
+        <p class="text">
+            Aplikacja jest zgodna z wytycznymi Apple App Store i Google Play Store dotyczącymi treści, prywatności i funkcjonalności. Deweloper zobowiązuje się do utrzymania tej zgodności i aktualizacji aplikacji w razie zmian w wytycznych.
+        </p>
+        <p class="text">
+            W przypadku jakichkolwiek niezgodności z wytycznymi sklepów, deweloper podejmie natychmiastowe działania w celu ich usunięcia.
+        </p>
 
-    <h1 class="section-title">16. Kontakt</h1>
-    <p class="text">
-        W przypadku pytań dotyczących niniejszego Regulaminu, możesz skontaktować się z nami:
-    </p>
-    <p class="bullet-point">
-        • E-mail: contact.fizi.app@gmail.com
-    </p>
-    <p class="bullet-point">
-        • Poprzez aplikację
-    </p>
-    <p class="text">
-        Staramy się odpowiadać na wszystkie zapytania w ciągu 48 godzin roboczych.
-    </p>
+        <h1 class="section-title">15. Postanowienia końcowe</h1>
+        <p class="text">
+            Jeśli którykolwiek przepis niniejszego Regulaminu zostanie uznany za nieważny lub niewykonalny, pozostałe przepisy pozostają w mocy.
+        </p>
+        <p class="text">
+            Niniejszy Regulamin stanowi całość porozumienia między użytkownikiem a deweloperem dotyczącego korzystania z aplikacji.
+        </p>
 
-    <p class="last-updated">
-        Ostatnia aktualizacja: 27 grudnia 2024
-    </p>
+        <h1 class="section-title">16. Kontakt</h1>
+        <p class="text">
+            W przypadku pytań dotyczących niniejszego Regulaminu, możesz skontaktować się z nami:
+        </p>
+        <p class="bullet-point">
+            • E-mail: contact.fizi.app@gmail.com
+        </p>
+        <p class="bullet-point">
+            • Poprzez aplikację
+        </p>
+        <p class="text">
+            Staramy się odpowiadać na wszystkie zapytania w ciągu 48 godzin roboczych.
+        </p>
+
+        <p class="last-updated">
+            Ostatnia aktualizacja: 27 grudnia 2024
+        </p>
+    </div>
+
+    <!-- English Content -->
+    <div id="content-en" class="lang-content">
+        <h1 class="section-title">1. General Provisions</h1>
+        <p class="text">
+            These Terms of Service specify the rules for using the FiziMove mobile application ("application", "FiziMove application"). Using the application signifies acceptance of these Terms.
+        </p>
+
+        <h1 class="section-title">2. Acceptance of Terms</h1>
+        <p class="text">
+            Starting to use the FiziMove application signifies acceptance of all provisions of these Terms. If you do not accept any of the provisions of the Terms, do not use the application.
+        </p>
+        <p class="text">
+            The application complies with the Apple App Store and Google Play Store guidelines. By using the application, the user also agrees to comply with the terms of use of Apple and Google services.
+        </p>
+
+        <h1 class="section-title">3. Age Requirements</h1>
+        <p class="text">
+            The FiziMove application is intended for users at least 13 years of age. Persons under 18 years of age should use the application with the consent and under the supervision of a parent or legal guardian.
+        </p>
+        <p class="text">
+            If you are a parent or legal guardian and notice that your child is using the application without your consent, please contact us and we will take appropriate action.
+        </p>
+
+        <h1 class="section-title">4. Nature of Application</h1>
+        <p class="text">
+            <span class="bold">The FiziMove application is strictly for educational and wellness purposes.</span> The presented exercises and content are intended to support general well-being and do not replace professional medical advice, therapy or diagnosis.
+        </p>
+        <p class="text">
+            Before starting any exercises, especially if you experience pain, discomfort or have any medical conditions, we recommend consulting a doctor, physiotherapist or other qualified specialist.
+        </p>
+
+        <h1 class="section-title">5. Usage Rules</h1>
+        <p class="text">
+            The user agrees to use the application in accordance with its purpose and in accordance with the law. It is prohibited to:
+        </p>
+        <p class="bullet-point">
+            • Use the application in a way that may violate the rights of others
+        </p>
+        <p class="bullet-point">
+            • Attempt to modify, decompile or reverse engineer the application
+        </p>
+        <p class="bullet-point">
+            • Use the application for commercial purposes without the developer's consent
+        </p>
+
+        <h1 class="section-title">6. Liability</h1>
+        <p class="text">
+            <span class="bold">The developer is not responsible for:</span>
+        </p>
+        <p class="bullet-point">
+            • Damages resulting from improper use of the application
+        </p>
+        <p class="bullet-point">
+            • Health damages resulting from performing exercises presented in the application
+        </p>
+        <p class="bullet-point">
+            • Loss of data stored locally on the user's device
+        </p>
+        <p class="bullet-point">
+            • Operation of the application on unsupported devices
+        </p>
+        <p class="text">
+            The user uses the application at their own risk.
+        </p>
+
+        <h1 class="section-title">7. Intellectual Property</h1>
+        <p class="text">
+            All copyrights, trademarks and other intellectual property rights to the FiziMove application belong to the developer. Copying, modifying, distributing or using the application or its parts without the developer's consent is prohibited.
+        </p>
+
+        <h1 class="section-title">8. External Services</h1>
+        <p class="text">
+            The application uses external services, including:
+        </p>
+        <p class="bullet-point">
+            • <span class="bold">Google AdMob</span> - for displaying ads in the application. Use of AdMob is subject to Google's terms of service and Google's privacy policy.
+        </p>
+        <p class="text">
+            The developer is not responsible for the operation of external services or for advertising content displayed by these services.
+        </p>
+
+        <h1 class="section-title">9. In-app Purchases and Subscriptions</h1>
+        <p class="text">
+            Currently, the application does not offer in-app purchases or subscriptions. In the event of introducing such functions in the future:
+        </p>
+        <p class="bullet-point">
+            • All purchases will be processed in accordance with Apple (In-App Purchase) and Google (Google Play Billing) payment systems
+        </p>
+        <p class="bullet-point">
+            • Prices, subscription terms and renewal rules will be clearly defined before purchase
+        </p>
+        <p class="bullet-point">
+            • Refunds and cancellations will be processed in accordance with the refund policy of the Apple App Store and Google Play Store
+        </p>
+        <p class="bullet-point">
+            • The user can manage subscriptions and cancel them in their account settings in the App Store or Google Play
+        </p>
+        <p class="text">
+            In case of questions regarding purchases or refunds, the user should contact Apple or Google directly, depending on the platform.
+        </p>
+
+        <h1 class="section-title">10. Application Availability</h1>
+        <p class="text">
+            The developer reserves the right to:
+        </p>
+        <p class="bullet-point">
+            • Temporarily or permanently suspend the operation of the application
+        </p>
+        <p class="bullet-point">
+            • Make changes to the functionality of the application
+        </p>
+        <p class="bullet-point">
+            • Withdraw the application from distribution
+        </p>
+        <p class="text">
+            The developer does not guarantee uninterrupted operation of the application or absence of errors.
+        </p>
+
+        <h1 class="section-title">11. Suspension and Termination</h1>
+        <p class="text">
+            The developer reserves the right to suspend or terminate user access to the application in case of violation of these Terms.
+        </p>
+        <p class="text">
+            Apple and Google reserve the right to remove the application from their stores in case of violation of their guidelines or laws.
+        </p>
+        <p class="text">
+            The user may stop using the application at any time by uninstalling it.
+        </p>
+
+        <h1 class="section-title">12. Changes to Terms</h1>
+        <p class="text">
+            The developer reserves the right to make changes to these Terms. Users will be informed of any significant changes through an application update. Continuing to use the application after changes are introduced signifies acceptance of the new Terms.
+        </p>
+
+        <h1 class="section-title">13. Dispute Resolution</h1>
+        <p class="text">
+            In matters not covered by these Terms, the provisions of Polish law shall apply.
+        </p>
+        <p class="text">
+            In case of disputes related to in-app purchases, the user can use the dispute resolution mechanisms available in the Apple App Store or Google Play Store.
+        </p>
+        <p class="text">
+            All other disputes will be settled by competent Polish courts, unless the law requires other proceedings.
+        </p>
+
+        <h1 class="section-title">14. Store Guidelines Compliance</h1>
+        <p class="text">
+            The application complies with the Apple App Store and Google Play Store guidelines regarding content, privacy and functionality. The developer undertakes to maintain this compliance and update the application in case of changes in guidelines.
+        </p>
+        <p class="text">
+            In case of any inconsistencies with store guidelines, the developer will take immediate action to remove them.
+        </p>
+
+        <h1 class="section-title">15. Final Provisions</h1>
+        <p class="text">
+            If any provision of these Terms is found to be invalid or unenforceable, the remaining provisions remain in force.
+        </p>
+        <p class="text">
+            These Terms constitute the entire agreement between the user and the developer regarding the use of the application.
+        </p>
+
+        <h1 class="section-title">16. Contact</h1>
+        <p class="text">
+            If you have questions regarding these Terms, you can contact us:
+        </p>
+        <p class="bullet-point">
+            • Email: contact.fizi.app@gmail.com
+        </p>
+        <p class="bullet-point">
+            • Via the application
+        </p>
+        <p class="text">
+            We try to respond to all inquiries within 48 business hours.
+        </p>
+
+        <p class="last-updated">
+            Last updated: December 27, 2024
+        </p>
+    </div>
+
+    <script>
+        // Detect system language and set initial language
+        function detectLanguage() {
+            const systemLang = navigator.language || navigator.userLanguage;
+            const langCode = systemLang.split('-')[0].toLowerCase();
+            
+            // Default to Polish if not English
+            return (langCode === 'en') ? 'en' : 'pl';
+        }
+
+        // Switch language function
+        function switchLanguage(lang) {
+            // Hide all content
+            document.getElementById('content-pl').classList.remove('active');
+            document.getElementById('content-en').classList.remove('active');
+            
+            // Remove active class from buttons
+            document.getElementById('lang-pl').classList.remove('active');
+            document.getElementById('lang-en').classList.remove('active');
+            
+            // Show selected content
+            document.getElementById('content-' + lang).classList.add('active');
+            
+            // Add active class to selected button
+            document.getElementById('lang-' + lang).classList.add('active');
+            
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
+            
+            // Update page title
+            document.title = lang === 'en' ? 'Terms of Service - FiziMove' : 'Regulamin - FiziMove';
+            
+            // Save preference to localStorage
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        // Initialize on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            // Check for saved preference first
+            const savedLang = localStorage.getItem('preferredLanguage');
+            const initialLang = savedLang || detectLanguage();
+            
+            switchLanguage(initialLang);
+        });
+    </script>
 </body>
 </html>
-
